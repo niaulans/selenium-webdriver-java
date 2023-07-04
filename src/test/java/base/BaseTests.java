@@ -1,43 +1,29 @@
 package base;
 
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver;;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import pages.HomePage;
 
 public class BaseTests {
 
     private WebDriver driver;
+    protected HomePage homePage;
 
+    @BeforeClass
     public void setUp() {
-        // Set directory chromedriver
+
         System.setProperty("webdriver.com.driver", "resources/chromedriver.exe");
-
-        // Create ChromeDriver object
-        driver = new ChromeDriver(); // can be changed to Firefox etc.
-
-        // Load to app
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("https://the-internet.herokuapp.com/");
 
-        // Maximize window app
-        driver.manage().window().maximize();
-
-        // Set windows
-//        driver.manage().window().setSize(new Dimension(390, 844));
-
-        // Fullscreen window app
-//        driver.manage().window().fullscreen();
-
-        // Get title of app
-        System.out.println(driver.getTitle());
-
-        // Close app and session
-        driver.quit();
-
-        // Just close the windows, not session
-//        driver.close();
+        homePage = new HomePage(driver);
     }
-    public static void main(String[] args) {
-        BaseTests test = new BaseTests();
-        test.setUp();
+
+    @AfterClass
+    public void tearDown() {
+        driver.quit();
     }
 }
