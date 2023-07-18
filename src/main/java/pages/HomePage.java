@@ -62,5 +62,10 @@ public class HomePage {
         return new ContextMenuPage(driver);
     }
 
+    public DynamicLoadingPage clickDynamicLoading() {
+        clickLink("Dynamic Loading");
+        return new DynamicLoadingPage(driver);
+    }
+
 
 }
