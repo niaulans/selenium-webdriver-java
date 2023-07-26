@@ -22,7 +22,7 @@ public class HomePage {
         return new LoginPage(driver);
     }
 
-    public DropdownPage clickDropdown() {
+    public DropdownPage clickDropDown() {
         clickLink("Dropdown");
         return new DropdownPage(driver);
     }
@@ -67,5 +67,13 @@ public class HomePage {
         return new DynamicLoadingPage(driver);
     }
 
+    public LargeAndDeepDomPage clickLargeAndDeepDom() {
+        clickLink("Large & Deep DOM");
+        return new LargeAndDeepDomPage(driver);
+    }
 
+    public InfiniteScrollPage clickInfiniteScroll() {
+        clickLink("Infinite Scroll");
+        return new InfiniteScrollPage(driver);
+    }
 }
