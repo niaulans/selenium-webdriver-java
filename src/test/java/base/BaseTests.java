@@ -46,9 +46,9 @@ public class BaseTests {
     }
 
     @AfterClass
-//    public void tearDown() {
-//        driver.quit();
-//    }
+    public void tearDown() {
+        driver.quit();
+    }
 
     public WindowManager getWindowManager() {
         return new WindowManager(driver);
